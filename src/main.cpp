@@ -156,9 +156,8 @@ void drawObjectProceduralTexture(obj::Model * model, glm::mat4 modelMatrix, glm:
 }
 
 bool isColision(glm::mat4 matrix1, glm::mat4 matrix2) {
-	if (matrix1[3][0] < matrix2[3][0] + 0.3 && matrix1[3][0] > matrix2[3][0] - 0.3 &&
-		matrix1[3][1] < matrix2[3][1] + 0.3 && matrix1[3][1] > matrix2[3][1] - 0.3 &&
-		matrix1[3][2] < matrix2[3][2] + 0.3 && matrix1[3][2] > matrix2[3][2] - 0.3) {
+	if (abs(matrix1[3][0] - matrix2[3][0]) < 0.3 && abs(matrix1[3][1] - matrix2[3][1]) < 0.3 && abs(matrix1[3][2] - matrix2[3][2]) < 0.3)
+	{
 		return true;
 	}
 	else {
